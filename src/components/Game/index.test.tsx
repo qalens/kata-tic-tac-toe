@@ -35,4 +35,14 @@ test('shouldDeclareWinner', () => {
     const { getByText } = within(getByTestId('winner-text'))
     expect(getByText('X is Winner')).toBeInTheDocument();
 });
+test('shouldDeclareWinnerHorizontal', () => {
+    const { getByTestId } = render(<Game/>);
+    getByTestId('square-0').click()
+    getByTestId('square-3').click()
+    getByTestId('square-1').click()
+    getByTestId('square-4').click()
+    getByTestId('square-2').click()
+    const { getByText } = within(getByTestId('winner-text'))
+    expect(getByText('X is Winner')).toBeInTheDocument();
+});
   

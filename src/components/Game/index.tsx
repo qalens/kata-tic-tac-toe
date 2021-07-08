@@ -21,21 +21,22 @@ const Game = ()=>{
         if(values[position]==null){
             let new_values=[...values];
             new_values[position] = turn;
+            setWinner(checkWinner(new_values));
             setValues(new_values);
             if(turn==XO.X){
                 setTurn(XO.O)
             } else {
                 setTurn(XO.X)
             }
-            setWinner(checkWinner(new_values));
         }
     }
-    const checkWinner=(values:(XO|null)[])=>{
+    const checkWinner=(current_values:(XO|null)[])=>{
         let winner=null;
         win.forEach(winCombi=>{
-            if(values[winCombi[0]]==values[winCombi[1]] && values[winCombi[1]]==values[winCombi[2]])
-            {
-                winner = values[winCombi[0]]
+            let equal=true;
+            const first = current_values[winCombi[0]]
+            if(winCombi.every( v => current_values[v] == first && first != null)){
+                winner = first
             }
         })
         return winner;
