@@ -24,3 +24,9 @@ test('calls onClick set by parent', () => {
     getByTestId('square-0').click()
     expect(onClick).toBeCalledWith(0)
 });
+test('shouldToggleValueWhenClicked', () => {
+    const onClick = jest.fn();
+    const { getByTestId } = render(<Square position={0} xo={null} onClick={onClick}/>)
+    getByTestId('square-0').click()
+    expect(onClick).toBeCalledWith(0)
+});
