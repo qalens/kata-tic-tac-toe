@@ -16,6 +16,13 @@ test('shouldSetValueToOOnSecondTurn', () => {
     const { getByText } = within(getByTestId('square-5'))
     expect(getByText('O')).toBeInTheDocument();
 });
+test('shouldNotSetValueToOOnClickingMultipleTimes', () => {
+    const { getByTestId } = render(<Game/>);
+    getByTestId('square-1').click()
+    getByTestId('square-1').click()
+    const { getByText } = within(getByTestId('square-1'))
+    expect(getByText('X')).toBeInTheDocument();
+});
 test('shouldDeclareWinner', () => {
     const { getByTestId } = render(<Game/>);
     getByTestId('square-0').click()
