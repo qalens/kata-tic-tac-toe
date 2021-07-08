@@ -1,4 +1,7 @@
+import Board from "../Board";
 const Game = ()=>{
-    throw 'Not Implemented'
+    return (
+        <Board/>
+    )
 }
 export default Game;
