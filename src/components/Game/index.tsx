@@ -18,15 +18,17 @@ const Game = ()=>{
     const [turn,setTurn] = useState(XO.X);
     const [winner,setWinner] = useState(initWinner);
     const handleClick=(position:number)=>{
-        let new_values=[...values];
-        new_values[position] = turn;
-        setValues(new_values);
-        if(turn==XO.X){
-            setTurn(XO.O)
-        } else {
-            setTurn(XO.X)
+        if(values[position]==null){
+            let new_values=[...values];
+            new_values[position] = turn;
+            setValues(new_values);
+            if(turn==XO.X){
+                setTurn(XO.O)
+            } else {
+                setTurn(XO.X)
+            }
+            setWinner(checkWinner(new_values));
         }
-       setWinner(checkWinner(new_values));
     }
     const checkWinner=(values:(XO|null)[])=>{
         let winner=null;
