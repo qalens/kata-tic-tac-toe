@@ -1,6 +1,11 @@
-import Square from '.'
-import { render } from '@testing-library/react';
+import Square,{XO} from '.'
+import { render,within } from '@testing-library/react';
 test('renders Square without crashing', () => {
-    render(<Square/>);
-  });
+    render(<Square position={0} xo={null}ß/>);
+});
+test('renders X in square', () => {
+    const { getByTestId } = render(<Square position={0} xo={XO.X} />)
+    const { getByText } = within(getByTestId('square'))
+    expect(getByText('X')).toBeInTheDocument()
+});
   
