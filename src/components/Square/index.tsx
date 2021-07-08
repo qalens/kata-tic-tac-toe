@@ -4,6 +4,7 @@ export enum XO{
 }
 const Square=({position,xo}:{position:number,xo:XO|null})=>{
     return <button data-testid="square">
+        {xo==null?"":xo}
     </button>
 }
 export default Square;
