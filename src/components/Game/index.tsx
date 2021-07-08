@@ -4,6 +4,7 @@ import {XO} from '../Square'
 const Game = ()=>{
     const initValues:(XO|null)[]=[null,null,null,null,null,null,null,null,null];
     const [values,setValues] = useState(initValues)
+    
     const handleClick=(position:number)=>{
         let new_values=[...values];
         new_values[position] = XO.X;
