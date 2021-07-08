@@ -8,4 +8,13 @@ test('renders X in square', () => {
     const { getByText } = within(getByTestId('square'))
     expect(getByText('X')).toBeInTheDocument()
 });
-  
+test('renders O in square', () => {
+    const { getByTestId } = render(<Square position={0} xo={XO.O} />)
+    const { getByText } = within(getByTestId('square'))
+    expect(getByText('O')).toBeInTheDocument()
+});
+test('renders null in square', () => {
+    const { getByTestId } = render(<Square position={0} xo={null} />)
+    const { getByText } = within(getByTestId('square'))
+    expect(getByText('')).toBeInTheDocument();
+});
