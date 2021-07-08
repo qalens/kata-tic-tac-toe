@@ -18,3 +18,9 @@ test('renders null in square', () => {
     const { getByText } = within(getByTestId('square'))
     expect(getByText('')).toBeInTheDocument();
 });
+test('calls onClick set by parent', () => {
+    const onClick = jest.fn();
+    const { getByTestId } = render(<Square position={0} xo={null} onClick={onClick}/>)
+    getByTestId('square').click()
+    expect(onClick).toBeCalledWith(0)
+});
