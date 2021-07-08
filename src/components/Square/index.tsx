@@ -3,7 +3,7 @@ export enum XO{
     O='O'
 }
 const Square=({position,xo,onClick}:{position:number,xo:XO|null,onClick:(position:number)=>void})=>{
-    return <button data-testid="square" onClick={()=>{onClick(position)}}>
+    return <button data-testid={"square-"+position} onClick={()=>{onClick(position)}}>
         {xo==null?"":xo}
     </button>
 }
